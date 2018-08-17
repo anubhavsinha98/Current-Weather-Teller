@@ -30,7 +30,6 @@ class App (object):
     
 	#Loading JSON
     j = json.loads (r.text)
-    print(json.dumps(j))
 	#Extract the temperature
     temperature = str ( j['main']['temp'] - 273 ) + "C"
     
