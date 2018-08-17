@@ -7,7 +7,7 @@ import sys
 class App (object):
   def __init__(self):
     self.root = Tk ()
-    self.root.geometry ("300x300")
+    self.root.geometry ("300x200")
     self.root.wm_title ("Weather")
     self.label = Label (self.root, text= "Enter your city.")
     self.label.pack ()
@@ -30,13 +30,18 @@ class App (object):
     
 	#Loading JSON
     j = json.loads (r.text)
-	
+    print(json.dumps(j))
 	#Extract the temperature
     temperature = str ( j['main']['temp'] - 273 ) + "C"
     
 	#Output
     result = temperature
     self.label.configure (text = result)
+	#enhancement #ourreviewfeature
+    if float(temperature[0:4])>35.00:
+    	tkMessageBox.showinfo("Our review","Its to hot there!!!\n"+result)
+    if float(temperature[0:4])<10.00:
+    	tkMessageBox.showinfo("Our review","Its to cold there!!!\n"+result)
 
   def button_click (self, e):
     pass
