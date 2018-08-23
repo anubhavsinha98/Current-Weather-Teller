@@ -1,5 +1,5 @@
-from Tkinter import *
-import tkMessageBox
+from tkinter import *
+import tkinter.messagebox
 import requests
 import json
 import sys
@@ -34,13 +34,13 @@ class App (object):
     temperature = str ( j['main']['temp'] - 273 ) + "C"
     
 	#Output
-    result = temperature
+    result = temperature[0:5]
     self.label.configure (text = result)
 	#enhancement #ourreviewfeature
-    if float(temperature[0:4])>35.00:
-    	tkMessageBox.showinfo("Our review","Its to hot there!!!\n"+result)
-    if float(temperature[0:4])<10.00:
-    	tkMessageBox.showinfo("Our review","Its to cold there!!!\n"+result)
+    if float(temperature[0:5])>35.00:
+    	messageBox.showinfo("Our review","Its to hot there!!!\n"+result)
+    if float(temperature[0:5])<10.00:
+    	messageBox.showinfo("Our review","Its to cold there!!!\n"+result)
 
   def button_click (self, e):
     pass
